@@ -7,7 +7,7 @@
                 <div class="banner-img">
                     <a href="#"><img src="/images/banner/025.gif" alt="banner"></a>
                 </div>
-                <!-- end of banner -->
+
             </div>
         </div>
         <div class="row mb-5">
