@@ -11,5 +11,9 @@
   "devDependencies": {
     "@types/node": "^18",
     "nuxt": "^3.4.3"
+  },
+  "dependencies": {
+    "vee-validate": "^4.9.1",
+    "yup": "^1.1.1"
   }
 }
