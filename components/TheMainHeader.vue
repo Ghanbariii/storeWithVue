@@ -2,9 +2,10 @@
     <header class="page-header d-md-block d-none">
         <!-- start banner -->
         <div class="alert banner-container alert-dismissible fade show" role="alert">
-            <a href="#" class="banner-placement rounded-0"
-                style="background-image: url(/images/banner/017.jpg);
-                height: 60px;"></a>
+            <nuxt-link to="/" class="banner-placement rounded-0" style="background-image: url(/images/banner/017.jpg);
+                height: 60px;"></nuxt-link>
+            <nuxt-link to="/test2" class="banner-placement rounded-0" style="background-image: url(/images/banner/017.jpg);
+                height: 60px;"></nuxt-link>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <!-- end banner -->
@@ -114,8 +115,8 @@
                                 <div class="profile-user-info ui-box">
                                     <div class="profile-detail">
                                         <div class="d-flex align-items-center">
-                                            <div class="profile-avatar me-3"><img
-                                                    src="/images/avatar/default.png" alt="avatar">
+                                            <div class="profile-avatar me-3"><img src="/images/avatar/default.png"
+                                                    alt="avatar">
                                             </div>
                                             <div class="profile-info">
                                                 <a href="#" class="text-decoration-none text-dark fw-bold mb-2">جلال

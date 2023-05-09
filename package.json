@@ -13,6 +13,7 @@
     "nuxt": "^3.4.3"
   },
   "dependencies": {
+    "ohmyfetch": "^0.4.21",
     "vee-validate": "^4.9.1",
     "yup": "^1.1.1"
   }

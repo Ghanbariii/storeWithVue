@@ -1,8 +1,12 @@
 <template>
     <div class="form-element-row">
         <label class="label fs-7"> {{ label }}</label>
-        <input :name="name" :type="type" :value="modelValue" :class="['form-control', {'error-input' : errorMessage }]"
-            :placeholder="placeholder" @input="handleInputChange" />
+        <input 
+        :name="name" 
+        :type="type" 
+        :value="inputValue" 
+        :class="['form-control', {'error-input' : errorMessage }]"
+        :placeholder="placeholder" @input="handleInputChange" />
         <span class="text-danger" v-if="errorMessage && ignoreErrorMessage == false">{{ errorMessage }}</span>
     </div>
 </template>

@@ -4,6 +4,9 @@
         "nouislider",
         "remodal",
         "simplebar",
-        "zoomsl"
+        "zoomsl",
+        "Athorize",
+        "nuxt",
+        "ohmyfetch"
     ]
 }

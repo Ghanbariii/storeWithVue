@@ -1,12 +1,16 @@
 <template>
-    <button :class="['btn',
+    <button 
+    disabled="loading"
+    :class="['btn',
         { 'btn-sm': size === 'sm' },
         { 'btn-lg': size === 'lg' },
         { 'w-100': wFull },
         outline ? `btn-outline-${color}` : `btn-${color}`,
     ]">
         <slot />
-        <slot name="icon" />
+        <div class="spinner-border" role="status" v-if="loading">
+            <span class="sr-only"></span>
+    </div>
     </button>
 </template>
 <script setup lang="ts">
@@ -27,5 +31,16 @@ defineProps({
         default: "primary",
         type: String,
     },
+    loading:{
+        default: false,
+        type: Boolean,
+    }
 })
 </script>
+<style scoped>
+.spinner-border{
+    margin-right:0.5rem;
+    width:1.5rem;
+    height:1.5rem;
+}
+</style>
