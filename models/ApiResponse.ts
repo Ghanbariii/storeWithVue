@@ -1,6 +1,6 @@
 export interface ApiResponse<TData> {
     isSuccess: boolean;
-    data:TData;
+    data:TData | null;
     metaData: MetaData;
 }
 

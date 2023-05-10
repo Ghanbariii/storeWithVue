@@ -1,5 +1,8 @@
 <template>
     <div class="auth-container">
+        <Head>
+            <Title>ثبت نام در سایت رودفا || Roodfa.ir</Title>
+        </Head>
         <div class="auth-title mb-3">ثبت نام در سایت</div>
         <div class="auth-box ui-box">
             <Form @submit="register" :validation-schema="registerSchema" class="auth-form" v-slot="{ meta }">
@@ -7,15 +10,15 @@
                     placeholder="شماره تلفن خود را وارد کنید" />
                 <base-input name="password" type="password" label="کلمه عبور" class="mb-3" v-model="registerData.password"
                     placeholder="کلمه عبور را وارد کنید" />
-                <base-input name="confirmpassword" type="password" label="کلمه عبور را تکرار کنید" class="mb-3"
+                <base-input name="confirmPassword" type="password" label="کلمه عبور را تکرار کنید" class="mb-3"
                     v-model="registerData.confirmPassword" placeholder="کلمه عبور را تکرار کنید " />
                 <div class="form-element-row mb-3">
-                    <base-button type="submit" :disabled="meta.valid == false" w-full :loading="loading" class="d-flex"> ثبت نام در سایت </base-button>
+                    <base-button type="submit" :disabled="meta.valid == false || loading" w-full :loading="loading" class="d-flex"> ثبت نام در سایت </base-button>
                 </div>
                 <div class="form-element-row">
                     <div>
                         قبلا ثبت نام کرده اید ؟
-                        <nuxt-link to="/auth/login" class="link">ورود به سابت</nuxt-link>
+                        <nuxt-link to="/auth/login" class="link">ورود به سایت</nuxt-link>
                     </div>
                 </div>
                 <hr />
@@ -43,7 +46,7 @@ const registerSchema = Yup.object().shape({
     phoneNumber: Yup.string().required().min(11, "شماره تلفن نامعتبر است")
         .max(11, "شماره تلفن نامعتبر است"),
     password: Yup.string().required(),
-    confirmPassword: Yup.string().oneOf([Yup.ref('password')], "کلمه های عبور یکسان نیستند")
+    confirmPassword: Yup.string().oneOf([Yup.ref("password")], "کلمه های عبور یکسان نیستند")
 })
 const registerData: RegisterDTo = reactive({
     phoneNumber: "",
