@@ -13,7 +13,9 @@
     "nuxt": "^3.4.3"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.10",
     "ohmyfetch": "^0.4.21",
+    "pinia": "^2.0.36",
     "vee-validate": "^4.9.1",
     "yup": "^1.1.1"
   }

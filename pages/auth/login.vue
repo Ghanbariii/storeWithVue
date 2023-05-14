@@ -6,7 +6,7 @@
         </Head>
         <div class="auth-title mb-3">ورود به حساب </div>
         <div class="auth-box ui-box">
-            <Form @submit="LoginrUser" :validation-schema="loginSchema" class="auth-form" v-slot="{ meta }">
+            <Form @submit="loginUser" :validation-schema="loginSchema" class="auth-form" v-slot="{ meta }">
                 <base-input name="phoneNumber" class="mb-3" label="شماره تلفن" v-model="loginData.phoneNumber"
                     placeholder="شماره تلفن خود را وارد کنید" />
                 <base-input name="password" type="password" label="کلمه عبور" v-model="loginData.password"
@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate';
 import * as Yup from "yup";
-import { LoginrUser } from '~/services/auth.service';
+import { Login } from '~/services/auth.service';
 definePageMeta({
     layout: "auth",
 });
@@ -51,13 +51,18 @@ const loginSchema = Yup.object().shape({
     password: Yup.string().required(),
     confirmPassword: Yup.string().oneOf([Yup.ref("password")], "کلمه های عبور یکسان نیستند")
 });
-const loginUser = async (data, formEvent) => {
-    console.log(e);
-    console.log(r);
-    var result = await LoginrUser(loginData.phoneNumber, loginData.password);
-    if (result.isSuccess) {
-    } else {
+const router = useRouter();
 
+const loginUser = async (data: any, formEvent: any) => {
+    loading.value = true;
+    var result = await Login(loginData.phoneNumber, loginData.password);
+    loading.value = false;
+    if (result.isSuccess) {
+        localStorage.setItem("auth-data", JSON.stringify(result.data));
+        await router.push("/");
+    } else {
+        formEvent.setFieldError("phoneNumber", "کاربری با مشخصات وارد شده یافت نشد");
     }
 };
+
 </script>

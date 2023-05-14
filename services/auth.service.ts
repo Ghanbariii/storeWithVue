@@ -1,4 +1,5 @@
 import { ApiResponse } from "~/models/ApiResponse";
+import { loginResultDTo } from "~/models/auth/loginResultDTo";
 import { RegisterDTo } from "~/models/auth/registerDTo";
 import { FetchApi } from "~/utilities/CustomFetchApi";
 
@@ -12,8 +13,8 @@ Promise<ApiResponse<undefined>> {
     });
 }
 
-export function  LoginrUser(phoneNumber:string, password:string): 
-Promise<ApiResponse<null>> {
+export function Login(phoneNumber:string, password:string): 
+Promise<ApiResponse<loginResultDTo>> {
     return FetchApi("/auth/login", {
         method: "POST",
         body: {

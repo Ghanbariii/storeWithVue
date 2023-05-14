@@ -1,6 +1,6 @@
 <template>
     <button 
-    disabled="loading"
+    
     :class="['btn',
         { 'btn-sm': size === 'sm' },
         { 'btn-lg': size === 'lg' },

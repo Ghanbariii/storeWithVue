@@ -679,7 +679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.4.3, @nuxt/kit@npm:^3.3.3":
+"@nuxt/kit@npm:3.4.3, @nuxt/kit@npm:^3.0.0, @nuxt/kit@npm:^3.3.3":
   version: 3.4.3
   resolution: "@nuxt/kit@npm:3.4.3"
   dependencies:
@@ -800,6 +800,16 @@ __metadata:
   peerDependencies:
     vue: ^3.2.47
   checksum: bd9456aa293657f65ce782da259a8c398693c26cb14dad65fc542dae7cd9ea65e1accb06f94ad54a162fd0b987eae334c1258b504cca5d32ec5ed8531c291196
+  languageName: node
+  linkType: hard
+
+"@pinia/nuxt@npm:^0.4.10":
+  version: 0.4.10
+  resolution: "@pinia/nuxt@npm:0.4.10"
+  dependencies:
+    "@nuxt/kit": ^3.0.0
+    pinia: ">=2.0.36"
+  checksum: f0c50775646b409d7ff1219d894f638ea9a576f55317d3c747d61feb2ee7cd21144ecba5a54951ebb09a73a36380acb716da33b79c8a820f54ed579e989f67f8
   languageName: node
   linkType: hard
 
@@ -4269,9 +4279,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nuxt-app@workspace:."
   dependencies:
+    "@pinia/nuxt": ^0.4.10
     "@types/node": ^18
     nuxt: ^3.4.3
     ohmyfetch: ^0.4.21
+    pinia: ^2.0.36
     vee-validate: ^4.9.1
     yup: ^1.1.1
   languageName: unknown
@@ -4591,6 +4603,25 @@ __metadata:
   version: 2.3.0
   resolution: "pify@npm:2.3.0"
   checksum: 9503aaeaf4577acc58642ad1d25c45c6d90288596238fb68f82811c08104c800e5a7870398e9f015d82b44ecbcbef3dc3d4251a1cbb582f6e5959fe09884b2ba
+  languageName: node
+  linkType: hard
+
+"pinia@npm:>=2.0.36, pinia@npm:^2.0.36":
+  version: 2.0.36
+  resolution: "pinia@npm:2.0.36"
+  dependencies:
+    "@vue/devtools-api": ^6.5.0
+    vue-demi: "*"
+  peerDependencies:
+    "@vue/composition-api": ^1.4.0
+    typescript: ">=4.4.4"
+    vue: ^2.6.14 || ^3.2.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+    typescript:
+      optional: true
+  checksum: 42a6f14a6875f0aac7026940671979d4dc31708a83b2c9551101148b752a8bb2c85b66a74b12d0b4cec793461d5eaf265777373fe79e33c5a8fb5dfa3169d7c6
   languageName: node
   linkType: hard
 
@@ -6224,6 +6255,22 @@ __metadata:
   dependencies:
     ufo: ^1.1.1
   checksum: 4f9e141aa6a9686b2e6e10da157a4ff87f4ca5295cf8b964e51fc8fad5c400600fbca43a71242c60f6da0070311095135cd6939bda0a33c8695320eec180e40d
+  languageName: node
+  linkType: hard
+
+"vue-demi@npm:*":
+  version: 0.14.1
+  resolution: "vue-demi@npm:0.14.1"
+  peerDependencies:
+    "@vue/composition-api": ^1.0.0-rc.1
+    vue: ^3.0.0-0 || ^2.6.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  bin:
+    vue-demi-fix: bin/vue-demi-fix.js
+    vue-demi-switch: bin/vue-demi-switch.js
+  checksum: af46db084503910f2fa0174d207a77018edf73f3cac86ac2aea97d073b71c0700e41fa915017722efc7d78aa2b7b7f0851b731efc6e87cce16a6fd1845ffffec
   languageName: node
   linkType: hard
 
