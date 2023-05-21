@@ -14,6 +14,7 @@ export const useAuthStore = defineStore("auth", () => {
     if (!localStorageData) {
       return;
     }
+
     const loginData = JSON.parse(localStorageData);
     loginResult.value = loginData;
     loading.value = true;
@@ -27,5 +28,5 @@ export const useAuthStore = defineStore("auth", () => {
     loading.value = false;
   };
 
-  return{loading , loginResult, currentUser, setCurrentUserValue , isLogin}
+  return { loading, loginResult, currentUser, setCurrentUserValue, isLogin };
 });
