@@ -6,7 +6,7 @@
         <div class="auth-title mb-3">ثبت نام در سایت</div>
         <div class="auth-box ui-box">
             <Form @submit="register" :validation-schema="registerSchema" class="auth-form" v-slot="{ meta }">
-                <base-input name="phoneNumber" class="mb-3" label="شماره تلفن" v-model="registerData.phoneNumber"
+                <base-input name="username" class="mb-3" label="شماره تلفن" v-model="registerData.username"
                     placeholder="شماره تلفن خود را وارد کنید" />
                 <base-input name="password" type="password" label="کلمه عبور" class="mb-3" v-model="registerData.password"
                     placeholder="کلمه عبور را وارد کنید" />
@@ -43,13 +43,13 @@ definePageMeta({
     layout: "auth",
 });
 const registerSchema = Yup.object().shape({
-    phoneNumber: Yup.string().required().min(11, "شماره تلفن نامعتبر است")
+    username: Yup.string().required().min(11, "شماره تلفن نامعتبر است")
         .max(11, "شماره تلفن نامعتبر است"),
     password: Yup.string().required(),
     confirmPassword: Yup.string().oneOf([Yup.ref("password")], "کلمه های عبور یکسان نیستند")
 })
 const registerData: RegisterDTo = reactive({
-    phoneNumber: "",
+    username: "",
     password: "",
     confirmPassword: "",
 });

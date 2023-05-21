@@ -1,5 +1,5 @@
 export interface RegisterDTo{
-    phoneNumber: string;
+    username: string;
     password:string;
     confirmPassword:string;
 }

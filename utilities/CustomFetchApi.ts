@@ -6,21 +6,23 @@ import { useAuthStore } from "~/stores/authStore";
 
 export async function FetchApi<T>(
   url: string,
-  config: FetchOptions = {}
+  config: any = {}
 ): Promise<ApiResponse<T>> {
-  const customConfig: any = {
-    baseURL: "http://shop-api.codeyad-project.ir/api",
+  config = {
+    baseURL: "https://smarttech2022.pythonanywhere.com/",
     ...config,
   };
-
-  
   const authStore = useAuthStore();
+
+  if (!config.headers){
+    config.headers ={};
+  }
   if (authStore && authStore.isLogin) {
     var loginData = authStore.loginResult;
     console.log(loginData);
-    customConfig.headers["Authorization"] = loginData?.token;
-  }
-  return $fetch<ApiResponse<T>>(url, customConfig)
+    config.headers={"Authorization":`Bearer ${loginData!.token}`}
+  };
+  return $fetch<ApiResponse<T>>(url, config)
     .then((res) => {
       return res;
     })
@@ -29,10 +31,10 @@ export async function FetchApi<T>(
         data: null,
         isSuccess: false,
         metaData: {
-          appStatusCode: AppStatusCode.ServerError,
+          appStatusCode: 
+          e.response?._data?.MetaData?.MetaData ?? AppStatusCode.ServerError,
           message:
-            e.response?._data?.MetaData?.Message ??
-            "مشکلی در عملیات رخ داده است",
+          e.response?._data?.MetaData?.Message ?? "مشکلی در عملیات رخ داده است",
         },
       };
     });

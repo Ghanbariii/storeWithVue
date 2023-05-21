@@ -1,4 +1,3 @@
 export interface loginResultDTo{
-    token: string;
-    refreshToken: string;
+    auth_token: string;
 }

@@ -7,18 +7,18 @@ import { FetchApi } from "~/utilities/CustomFetchApi";
 
 export function  RegisterUser(command:RegisterDTo): 
 Promise<ApiResponse<undefined>> {
-    return FetchApi("/auth/register", {
+    return FetchApi("auth/users/", {
         method: "POST",
         body: command
     });
 }
 
-export function Login(phoneNumber:string, password:string): 
+export function Login(username:string, password:string): 
 Promise<ApiResponse<loginResultDTo>> {
-    return FetchApi("/auth/login", {
+    return FetchApi("auth/token/login/", {
         method: "POST",
         body: {
-            phoneNumber : phoneNumber,
+            username : username,
             password : password,
         },
     });

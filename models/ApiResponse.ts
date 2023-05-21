@@ -1,4 +1,5 @@
 export interface ApiResponse<TData> {
+[x: string]: any;
     isSuccess: boolean;
     data:TData | null;
     metaData: MetaData;
