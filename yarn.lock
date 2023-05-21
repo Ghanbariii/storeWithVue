@@ -4285,6 +4285,7 @@ __metadata:
     ohmyfetch: ^0.4.21
     pinia: ^2.0.36
     vee-validate: ^4.9.1
+    vue3-carousel: ^0.3.1
     yup: ^1.1.1
   languageName: unknown
   linkType: soft
@@ -6289,6 +6290,15 @@ __metadata:
   peerDependencies:
     vue: ^3.2.0
   checksum: c7f0156ac03a9561d110f5ff778121eee7c8c154be6ec5064558ba22ab5237db36f29ffffc95cc16d692cc68a26df0c434f395401c0e3b48f782c7bed51391c6
+  languageName: node
+  linkType: hard
+
+"vue3-carousel@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "vue3-carousel@npm:0.3.1"
+  peerDependencies:
+    vue: ^3.2.0
+  checksum: 804a074b79003bff40a2dc72e9eb9c5e808527410d2dc2c0c09681cc07872ee40269fc592b08e246eee45ada6646f667cb997cdd1b277cbca6bc7c83700382cb
   languageName: node
   linkType: hard
 

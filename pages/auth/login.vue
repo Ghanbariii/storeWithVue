@@ -56,9 +56,10 @@ const router = useRouter();
 const loginUser = async (data: any, formEvent: any) => {
     loading.value = true;
     var result = await Login(loginData.username, loginData.password);
+    console.log(result);
     loading.value = false;
     if (result.auth_token) {
-        localStorage.setItem("auth-data", JSON.stringify(result.data));
+        localStorage.setItem("auth-data", JSON.stringify(result.auth_token));
         await router.push("/");
     } else {
         formEvent.setFieldError("username", "کاربری با مشخصات وارد شده یافت نشد");

@@ -26,6 +26,10 @@
     opacity: 0 !important;
 }
 
+.carousel__viewport{
+    border-radius: 15px !important;
+}
+
 
 
 /* .layout-enter-active {

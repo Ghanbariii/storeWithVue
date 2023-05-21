@@ -17,6 +17,7 @@
     "ohmyfetch": "^0.4.21",
     "pinia": "^2.0.36",
     "vee-validate": "^4.9.1",
+    "vue3-carousel": "^0.3.1",
     "yup": "^1.1.1"
   }
 }
