@@ -19,9 +19,9 @@ export const useAuthStore = defineStore("auth", () => {
     loginResult.value = loginData;
     loading.value = true;
     var result = await GetCurrentUser();
-    if (result.isSuccess) {
+    if (result.auth_data) {
       currentUser.value = result.data;
-    } else if (result.metaData.appStatusCode ==  AppStatusCode.UnAthorize) {
+    } else if (result.metaData.appStatusCode == AppStatusCode.UnAthorize) {
       loginResult.value = null;
       localStorage.removeItem("auth-data");
     }
@@ -29,4 +29,5 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   return { loading, loginResult, currentUser, setCurrentUserValue, isLogin };
+
 });

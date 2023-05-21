@@ -59,7 +59,7 @@ const register = async () => {
     loading.value=true;
     var result = await RegisterUser(registerData);
     loading.value=false;
-    if(result.isSuccess) {
+    if(result.auth_data) {
         router.push("/auth/login");
         //Toast
     }else{

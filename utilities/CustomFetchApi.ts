@@ -20,7 +20,7 @@ export async function FetchApi<T>(
   if (authStore && authStore.isLogin) {
     var loginData = authStore.loginResult;
     console.log(loginData);
-    config.headers={"Authorization":`Bearer ${loginData!.token}`}
+    config.headers={"Authorization":`Bearer ${loginData!.auth_token}`}
   };
   return $fetch<ApiResponse<T>>(url, config)
     .then((res) => {

@@ -23,10 +23,10 @@
 </template>
 
 <script setup lang="ts">
-import { useTest2Store, useTestStore } from '~/stores/testStore';
+// import { useTest2Store, useTestStore } from '~/stores/testStore';
 import { FetchApi } from '~/utilities/CustomFetchApi';
-const testStore = useTestStore();
-const testStore2 = useTest2Store();
+// const testStore = useTestStore();
+// const testStore2 = useTest2Store();
 onMounted(async () => {
     var res = await FetchApi('/banner');
 })
