@@ -12,6 +12,8 @@ export async function FetchApi<T>(
     baseURL: "http://shop-api.codeyad-project.ir/api",
     ...config,
   };
+
+  
   const authStore = useAuthStore();
   if (authStore && authStore.isLogin) {
     var loginData = authStore.loginResult;
