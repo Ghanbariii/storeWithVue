@@ -1,4 +1,7 @@
 <template>
+    <div v-if="pending">
+        Loading ...
+    </div>
     <div>
         <base-button outline w-full>ثبت نام کاربر</base-button>
         <div class="row mb-3 d-sm-block d-none">
@@ -13,7 +16,7 @@
         <div class="row mb-5">
             <div class="col-lg-8 mb-lg-0 mb-4">
 
-                <home-main-slider />
+                <home-main-slider :data="data.data?.sliders" />
 
             </div>
             <div class="col-lg-4">
@@ -80,8 +83,7 @@
                                     <!-- Slides -->
                                     <div class="swiper-slide d-lg-none d-sm-block d-none">
                                         <div class="specials-container">
-                                            <img src="/images/theme/specials.png" class="img-fluid mb-0"
-                                                alt="">
+                                            <img src="/images/theme/specials.png" class="img-fluid mb-0" alt="">
                                             <a href="#" class="btn btn-sm btn-outline-light">مشاهده همه <i
                                                     class="ri-arrow-left-fill ms-2"></i></a>
                                         </div>
@@ -1188,10 +1190,16 @@
     </div>
 </template>
 
-<script>
-export default {
+<script setup lang="ts">
+import { HomeDataDto } from '~/models/home/homeDataDto';
+import { FetchApi } from '~/utilities/CustomFetchApi';
 
-}
+const { data, pending } = useLazyAsyncData("main-page", () => FetchApi<HomeDataDto>("/utilities/mainPageData"),
+    {
+        initialCache: true,
+    }
+);
+
 </script>
 
 <style></style>

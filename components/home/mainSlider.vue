@@ -1,23 +1,11 @@
 <template>
-        <Carousel dir="rtl" v-model="currentSlide">
-            <Slide class="swiper-slide main-swiper-slide">
-                <a class="carousel__item" href="#" style="background-image: url(/images/slider/main/01.jpg);">
-                    <img src="/images/slider/main/01.jpg" alt="">
-                </a>
-            </Slide>
-            <Slide class="swiper-slide main-swiper-slide">
-                <a class="carousel__item" href="#" style="background-image: url(/images/slider/main/02.jpg);">
-                    <img src="/images/slider/main/02.jpg" alt="">
-                </a>
-            </Slide>
-            <Slide class="swiper-slide main-swiper-slide">
-                <a class="carousel__item" href="#" style="background-image: url(/images/slider/main/03.jpg);">
-                    <img src="/images/slider/main/03.jpg" alt="">
-                </a>
-            </Slide>
-            <Slide class="swiper-slide main-swiper-slide">
-                <a class="carousel__item" href="#" style="background-image: url(/images/slider/main/04.jpg);">
-                    <img src="/images/slider/main/04.jpg" alt="">
+        <Carousel dir="rtl" v-model="currentSlide" wrapAround :autoplay="2000" :items-to-show="1" v-if="isShow">
+            <Slide 
+            class="swiper-slide main-swiper-slide"
+            v-for="(item,index) in data"
+            :key="index">
+                <a class="carousel__item" :href="item.link">
+                    <img :src="GetSliderImage(item.imageName)" :alt="item.title">
                 </a>
             </Slide>
             <template #addons="{ slidesCount }">
@@ -35,11 +23,22 @@
 </template>
 
 <script setup lang="ts">
-
-import { defineComponent } from 'vue'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
+import { SliderDto } from '~/models/home/homeDataDto';
+import { GetSliderImage } from '~/utilities/imageUrls';
+const props = defineProps<{
+    data:SliderDto[];
+}>();
+
 const currentSlide = ref(0);
+const isShow=ref(false);
+onMounted(()=>{
+    setTimeout(()=>{
+        isShow.value=true;
+    } , 100);
+})
+
 </script>
 
 <style scoped>
