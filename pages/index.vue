@@ -16,7 +16,7 @@
         <div class="row mb-5">
             <div class="col-lg-8 mb-lg-0 mb-4">
 
-                <home-main-slider :data="data.data?.sliders" />
+                <home-main-slider :data="result[0].image_url" />
 
             </div>
             <div class="col-lg-4">
@@ -1194,11 +1194,11 @@
 import { HomeDataDto } from '~/models/home/homeDataDto';
 import { FetchApi } from '~/utilities/CustomFetchApi';
 
-const { data, pending } = useLazyAsyncData("main-page", () => FetchApi<HomeDataDto>("/utilities/mainPageData"),
-    {
-        initialCache: true,
-    }
+const { data  , pending } = useLazyAsyncData(
+    "main-page",
+     () => FetchApi<HomeDataDto>("/Utilities/MainPageData")
 );
+
 
 </script>
 

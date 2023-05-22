@@ -15,10 +15,7 @@ export enum BannerPosition {
 }
 
 export interface SliderDto {
-  creationDate: Date;
-  title: string;
-  link: string;
-  imageName: string;
+  image: string;
 }
 export interface HomeDataDto {
   banners: BannerDto[];

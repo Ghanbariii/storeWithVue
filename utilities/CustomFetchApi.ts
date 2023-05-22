@@ -29,7 +29,7 @@ export async function FetchApi<T>(
     .catch((e: FetchError) => {
       return {
         data: null,
-        isSuccess: false,
+        auth_data: false,
         metaData: {
           appStatusCode: 
           e.response?._data?.MetaData?.MetaData ?? AppStatusCode.ServerError,
