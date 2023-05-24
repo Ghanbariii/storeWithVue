@@ -1,19 +1,21 @@
 <template>
     <div class="auth-container">
+
         <Head>
             <Title>ثبت نام در سایت رودفا || Roodfa.ir</Title>
         </Head>
         <div class="auth-title mb-3">ثبت نام در سایت</div>
         <div class="auth-box ui-box">
             <Form @submit="register" :validation-schema="registerSchema" class="auth-form" v-slot="{ meta }">
-                <base-input name="username" class="mb-3" label="شماره تلفن" v-model="registerData.username"
+                <base-input name="phoneNumber" class="mb-3" label="شماره تلفن" v-model="registerData.phoneNumber"
                     placeholder="شماره تلفن خود را وارد کنید" />
                 <base-input name="password" type="password" label="کلمه عبور" class="mb-3" v-model="registerData.password"
                     placeholder="کلمه عبور را وارد کنید" />
                 <base-input name="confirmPassword" type="password" label="کلمه عبور را تکرار کنید" class="mb-3"
                     v-model="registerData.confirmPassword" placeholder="کلمه عبور را تکرار کنید " />
                 <div class="form-element-row mb-3">
-                    <base-button type="submit" :disabled="meta.valid == false || loading" w-full :loading="loading" class="d-flex"> ثبت نام در سایت </base-button>
+                    <base-button type="submit" :disabled="meta.valid == false || loading" w-full :loading="loading"
+                        class="d-flex"> ثبت نام در سایت </base-button>
                 </div>
                 <div class="form-element-row">
                     <div>
@@ -43,13 +45,13 @@ definePageMeta({
     layout: "auth",
 });
 const registerSchema = Yup.object().shape({
-    username: Yup.string().required().min(11, "شماره تلفن نامعتبر است")
+    phoneNumber: Yup.string().required().min(11, "شماره تلفن نامعتبر است")
         .max(11, "شماره تلفن نامعتبر است"),
     password: Yup.string().required(),
     confirmPassword: Yup.string().oneOf([Yup.ref("password")], "کلمه های عبور یکسان نیستند")
 })
 const registerData: RegisterDTo = reactive({
-    username: "",
+    phoneNumber: "",
     password: "",
     confirmPassword: "",
 });

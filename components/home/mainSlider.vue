@@ -5,7 +5,7 @@
             v-for="(item,index) in data"
             :key="index">
                 <a class="carousel__item" :href="item.link">
-                    <img :src="(item.image)" :alt="item.title">
+                    <img :src="(item.imageName)" :alt="item.title">
                 </a>
             </Slide>
             <template #addons="{ slidesCount }">

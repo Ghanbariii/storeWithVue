@@ -19,7 +19,7 @@ export const useAuthStore = defineStore("auth", () => {
     loginResult.value = loginData;
     loading.value = true;
     var result = await GetCurrentUser();
-    if (result.auth_data) {
+    if (result.isSuccess) {
       currentUser.value = result.data;
     } else if (result.metaData.appStatusCode == AppStatusCode.UnAthorize) {
       loginResult.value = null;

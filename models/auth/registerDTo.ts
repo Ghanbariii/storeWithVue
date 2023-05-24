@@ -1,5 +1,5 @@
-export interface RegisterDTo{
-    username: string;
-    password:string;
-    confirmPassword:string;
+export interface RegisterDTo {
+  phoneNumber: string;
+  password: string;
+  confirmPassword: string;
 }

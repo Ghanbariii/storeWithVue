@@ -7,7 +7,7 @@
         <div class="auth-title mb-3">ورود به حساب </div>
         <div class="auth-box ui-box">
             <Form @submit="loginUser" :validation-schema="loginSchema" class="auth-form" v-slot="{ meta }">
-                <base-input name="username" class="mb-3" label="شماره تلفن" v-model="loginData.username"
+                <base-input name="phoneNumber" class="mb-3" label="شماره تلفن" v-model="loginData.phoneNumber"
                     placeholder="شماره تلفن خود را وارد کنید" />
                 <base-input name="password" type="password" label="کلمه عبور" v-model="loginData.password"
                     placeholder="کلمه عبور را وارد کنید" />
@@ -42,11 +42,11 @@ definePageMeta({
 });
 const loading = ref(false);
 const loginData = reactive({
-    username: "",
+    phoneNumber: "",
     password: "",
 });
 const loginSchema = Yup.object().shape({
-    username: Yup.string().required().min(11, "شماره تلفن نامعتبر است")
+    phoneNumber: Yup.string().required().min(11, "شماره تلفن نامعتبر است")
         .max(11, "شماره تلفن نامعتبر است"),
     password: Yup.string().required(),
     confirmPassword: Yup.string().oneOf([Yup.ref("password")], "کلمه های عبور یکسان نیستند")
@@ -55,14 +55,14 @@ const router = useRouter();
 
 const loginUser = async (data: any, formEvent: any) => {
     loading.value = true;
-    var result = await Login(loginData.username, loginData.password);
+    var result = await Login(loginData.phoneNumber, loginData.password);
     console.log(result);
     loading.value = false;
     if (result.auth_token) {
         localStorage.setItem("auth-data", JSON.stringify(result.auth_token));
         await router.push("/");
     } else {
-        formEvent.setFieldError("username", "کاربری با مشخصات وارد شده یافت نشد");
+        formEvent.setFieldError("phoneNumber", "کاربری با مشخصات وارد شده یافت نشد");
     }
 };
 

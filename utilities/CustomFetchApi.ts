@@ -9,7 +9,7 @@ export async function FetchApi<T>(
   config: any = {}
 ): Promise<ApiResponse<T>> {
   config = {
-    baseURL: "https://smarttech2022.pythonanywhere.com/",
+    baseURL: "http://shop-api.codeyad-project.ir/api",
     ...config,
   };
   const authStore = useAuthStore();
@@ -29,7 +29,7 @@ export async function FetchApi<T>(
     .catch((e: FetchError) => {
       return {
         data: null,
-        auth_data: false,
+        isSuccess: false,
         metaData: {
           appStatusCode: 
           e.response?._data?.MetaData?.MetaData ?? AppStatusCode.ServerError,
