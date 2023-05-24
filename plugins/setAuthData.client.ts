@@ -1,6 +1,6 @@
 import { useAuthStore } from "~/stores/authStore";
 
-export default defineNuxtPlugin((nuxtApp)=> {
-const authStore=useAuthStore();
-authStore.setCurrentUserValue();
+export default defineNuxtPlugin((nuxtApp) => {
+  const authStore = useAuthStore();
+  authStore.setCurrentUserValue();
 });

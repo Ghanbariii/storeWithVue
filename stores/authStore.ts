@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
 import { AppStatusCode } from "~/models/ApiResponse";
-import { loginResultDTo } from "~/models/auth/loginResultDTo";
+import { LoginResultDto } from "~/models/auth/loginResultDTo";
 import { UserDTo } from "~/models/users/userDTo";
 import { GetCurrentUser } from "~/services/user.service";
 
 export const useAuthStore = defineStore("auth", () => {
-  const loginResult: Ref<loginResultDTo | null> = ref(null);
+  const loginResult: Ref<LoginResultDto | null> = ref(null);
   const currentUser: Ref<UserDTo | null> = ref(null);
   const loading = ref(false);
   const isLogin = computed(() => loginResult.value !== null);

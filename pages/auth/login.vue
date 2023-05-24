@@ -56,10 +56,9 @@ const router = useRouter();
 const loginUser = async (data: any, formEvent: any) => {
     loading.value = true;
     var result = await Login(loginData.phoneNumber, loginData.password);
-    console.log(result);
     loading.value = false;
-    if (result.auth_token) {
-        localStorage.setItem("auth-data", JSON.stringify(result.auth_token));
+    if (result.isSuccess) {
+        localStorage.setItem("auth-data", JSON.stringify(result.data));
         await router.push("/");
     } else {
         formEvent.setFieldError("phoneNumber", "کاربری با مشخصات وارد شده یافت نشد");

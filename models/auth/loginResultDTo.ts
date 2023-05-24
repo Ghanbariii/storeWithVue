@@ -1,3 +1,4 @@
-export interface loginResultDTo{
-    auth_token: string;
-}
+export interface LoginResultDto {
+    token: string;
+    refreshToken: string;
+  }

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="pending">
+    <div v-if="pending || data == null">
         Loading ...
     </div>
     <div>
@@ -1194,7 +1194,7 @@
 import { HomeDataDto } from '~/models/home/homeDataDto';
 import { FetchApi } from '~/utilities/CustomFetchApi';
 
-const { data, pending } = useLazyAsyncData(
+const { data, pending } = useAsyncData(
     "main-page",
     () => FetchApi<HomeDataDto>("/Utilities/MainPageData")
 );

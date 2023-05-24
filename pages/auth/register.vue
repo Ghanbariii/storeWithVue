@@ -56,15 +56,15 @@ const registerData: RegisterDTo = reactive({
     confirmPassword: "",
 });
 const loading = ref(false)
-const router=useRouter();
+const router = useRouter();
 const register = async () => {
-    loading.value=true;
+    loading.value = true;
     var result = await RegisterUser(registerData);
-    loading.value=false;
-    if(result.auth_data) {
+    loading.value = false;
+    if (result.isSuccess) {
         router.push("/auth/login");
         //Toast
-    }else{
+    } else {
         //Toast
         alert(result.metaData.message);
     }

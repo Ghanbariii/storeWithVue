@@ -2,6 +2,7 @@ import { $fetch } from "ohmyfetch";
 import { FetchError, FetchOptions } from "ohmyfetch";
 import { ApiResponse, AppStatusCode } from "~/models/ApiResponse";
 import { useAuthStore } from "~/stores/authStore";
+import { BASE_URL } from "./ApiConfig";
 
 
 export async function FetchApi<T>(
@@ -9,7 +10,7 @@ export async function FetchApi<T>(
   config: any = {}
 ): Promise<ApiResponse<T>> {
   config = {
-    baseURL: "http://shop-api.codeyad-project.ir/api",
+    baseURL: BASE_URL,
     ...config,
   };
   const authStore = useAuthStore();
@@ -19,8 +20,8 @@ export async function FetchApi<T>(
   }
   if (authStore && authStore.isLogin) {
     var loginData = authStore.loginResult;
-    console.log(loginData);
-    config.headers={"Authorization":`Bearer ${loginData!.auth_token}`}
+
+    config.headers={"Authorization":`Bearer ${loginData!.token}`}
   };
   return $fetch<ApiResponse<T>>(url, config)
     .then((res) => {

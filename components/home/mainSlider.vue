@@ -1,97 +1,91 @@
 <template>
-        <Carousel dir="rtl" v-model="currentSlide" wrapAround :autoplay="2000" :items-to-show="1" v-if="isShow">
-            <Slide 
-            class="swiper-slide main-swiper-slide"
-            v-for="(item,index) in data"
-            :key="index">
-                <a class="carousel__item" :href="item.link">
-                    <img :src="(item.imageName)" :alt="item.title">
-                </a>
-            </Slide>
-            <template #addons="{ slidesCount }">
-                <div class="slider_navigation">
-                    <div class="swiper-button-prev" v-if="slidesCount > currentSlide + 1" @click="currentSlide += 1">
-                    </div>
-                    <div class="swiper-button-next" v-if="currentSlide > 0" @click="currentSlide -= 1"></div>
-                </div>
-                <div class="slider_pagination">
-                    <label :class="{ 'active': item == currentSlide + 1 }" v-for="item in slidesCount" :key="item"
-                        @click="currentSlide = item - 1"></label>
-                </div>
-            </template>
-        </Carousel>
-</template>
-
-<script setup lang="ts">
-import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
-import { SliderDto } from '~/models/home/homeDataDto';
-import { GetSliderImage } from '~/utilities/imageUrls';
-const props = defineProps<{
-    data:SliderDto[];
-}>();
-
-const currentSlide = ref(0);
-const isShow=ref(false);
-onMounted(()=>{
-    setTimeout(()=>{
-        isShow.value=true;
-    } , 100);
-})
-
-</script>
-
-<style scoped>
-.carousel__item img {
-    border-radius: 15px !important;
+    <BaseCarousel class="main__slider" effect="fade" :loop="true"
+      :modules="[SwiperAutoplay, SwiperEffectFade, SwiperNavigation, SwiperPagination]" :items="data" 
+      :autoplay="{
+        delay: 3000,
+        pauseOnMouseEnter: true
+      }" :navigation="{
+    enabled: true
+  }" :pagination="{
+    enabled: true,
+    clickable: true,
+    dynamicBullets: true,
+  }" :itemsToShow="1">
+      <template #item="{ item }">
+        <a class="carousel__item" :href="item.link">
+          <base-image :src="GetSliderImage(item.imageName)" :alt="item.title" />
+        </a>
+      </template>
+    </BaseCarousel>
+  </template>
+  
+  <script setup lang="ts">
+  import { SliderDto } from "~~/models/home/homeDataDto";
+  import { GetSliderImage } from "~~/utilities/imageUrls";
+  const props = defineProps<{
+    data: SliderDto[];
+  }>();
+  </script>
+  
+  <style>
+  @media screen and (max-width:990px) {
+    .main__slider .carousel__item img {
+      height: auto !important;
+    }
+  }
+  
+  .main__slider .carousel__item {
+    border-radius: 15px;
+    width: 100%;
+  }
+  
+  .main__slider .carousel__item img {
     height: 455px;
+    border-radius: 15px;
     width: 100%;
-}
-
-.carousel__item {
-    border-radius: 15px !important;
-    width: 100%;
-}
-
-.carousel__slide {
+  }
+  
+  .main__slider .carousel__slide {
     padding: 0;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    width: 55px;
-    height: 55px;
-    background: transparent;
-}
-
-.slider_pagination {
+    border-radius: 15px !important;
+  }
+  
+  .main__slider .swiper-button-prev::after,
+  .main__slider .swiper-button-next:after {
+    color: white !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+  }
+  
+  .main__slider .swiper-button-prev,
+  .main__slider .swiper-button-next {
+    width: 55px !important;
+    height: 55px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .slider__pagination {
     display: flex;
     gap: 0.5rem;
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 1rem;
     width: 100%;
     right: 0;
-    justify-content: center
-}
-
-.slider_pagination label {
+    justify-content: center;
+  }
+  
+  .slider__pagination label {
     width: 6px;
     height: 6px;
-    border-radius: 50%;
     background: rgba(0, 0, 0, 0.712);
+    border-radius: 50%;
     cursor: pointer;
-}
-
-.slider_pagination label.active {
+  }
+  
+  .main__slider .swiper-pagination-bullet-active-main {
     background: white !important;
-    width: 9px;
-    height: 9px;
-}
-</style>
+  }
+  
+  </style>
