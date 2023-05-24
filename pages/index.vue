@@ -22,7 +22,7 @@
             <div class="col-lg-4">
                 <div class="row">
                     <div class="col-lg-12 col-6 mb-lg-3">
-                        <!-- start of banner -->
+
                         <div class="banner-img banner-side-main-slider bg-position-right">
                             <a href="#" style="background-image: url(/images/banner/026.jpg);height:220px;">
                                 <img src="/images/banner/026.jpg" alt="">
