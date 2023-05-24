@@ -4,15 +4,7 @@
     </div>
     <div>
         <base-button outline w-full>ثبت نام کاربر</base-button>
-        <div class="row mb-3 d-sm-block d-none">
-            <div class="col-12">
-                <!-- start of banner -->
-                <div class="banner-img">
-                    <a href="#"><img src="/images/banner/025.gif" alt="banner"></a>
-                </div>
-
-            </div>
-        </div>
+        <home-banner :banners:"data?.data?.banners" :position="BannerPosition.بالای_اسلایدر" />
         <div class="row mb-5">
             <div class="col-lg-8 mb-lg-0 mb-4">
 
