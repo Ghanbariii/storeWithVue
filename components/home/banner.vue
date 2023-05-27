@@ -16,9 +16,9 @@
 import { BannerDto, BannerPosition } from "~~/models/home/homeDataDto";
 
 const props = defineProps<{
-  banners: BannerDto[];
-  position: BannerPosition;
+  banners: BannerDto[],
+  position: BannerPosition
 }>();
 
-const filteredBanners = props.banners.filter(f => f.position == props.position);
+// const filteredBanners = props.banners.filter(f => f.position == props.position);
 </script>

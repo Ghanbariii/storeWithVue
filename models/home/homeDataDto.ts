@@ -6,7 +6,7 @@ export interface BannerDto {
   imageName: string;
   position: BannerPosition;
 }
-export enum BannerPosition {
+export enum   BannerPosition {
   زیر_اسلایدر = 0,
   سمت_چپ_اسلایدر = 1,
   بالای_اسلایدر = 2,
