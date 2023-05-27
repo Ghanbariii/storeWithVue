@@ -6,8 +6,8 @@
     <div class="col-12">
       <div class="banner-img">
         <a :href="filteredBanners[0].link">
-          <img src="/images/banner/025.gif" alt="banner"
-        /></a>
+          <base-image :src="GetBannerImage(filteredBanners[0].imageName)" alt="banner"/>
+        </a>
       </div>
     </div>
   </div>
@@ -20,5 +20,5 @@ const props = defineProps<{
   position: BannerPosition;
 }>();
 
-const filteredBanners = props.banners.filter((f) => f.position == props.position);
+const filteredBanners = props.banners.filter(f => f.position == props.position);
 </script>
