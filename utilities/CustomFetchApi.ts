@@ -2,7 +2,7 @@ import { $fetch } from "ohmyfetch";
 import { FetchError, FetchOptions } from "ohmyfetch";
 import { ApiResponse, AppStatusCode } from "~/models/ApiResponse";
 import { useAuthStore } from "~/stores/authStore";
-import { BASE_URL } from "./ApiConfig";
+//import { BASE_URL } from "./ApiConfig";
 
 
 export async function FetchApi<T>(
@@ -10,7 +10,8 @@ export async function FetchApi<T>(
   config: any = {}
 ): Promise<ApiResponse<T>> {
   config = {
-    baseURL: BASE_URL,
+    baseURL: "https://shop-api.codeyad-project.ir/api",
+    //baseURL: BASE_URL,
     ...config,
   };
   const authStore = useAuthStore();

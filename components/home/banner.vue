@@ -1,4 +1,4 @@
-<template v-if="filteredBanners.length > 0">
+<!-- <template v-if="filteredBanners.length > 0">
   <div
     class="row mb-3 d-sm-block d-none"
     v-if="position == BannerPosition.بالای_اسلایدر"
@@ -20,5 +20,5 @@ const props = defineProps<{
   position: BannerPosition
 }>();
 
-// const filteredBanners = props.banners.filter(f => f.position == props.position);
-</script>
+ const filteredBanners = props.banners.filter(f => f.position == props.position);
+</script> -->
