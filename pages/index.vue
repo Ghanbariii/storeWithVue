@@ -1801,7 +1801,7 @@
 import { HomeDataDto } from "~/models/home/homeDataDto";
 import { FetchApi } from "~/utilities/CustomFetchApi";
 
-  const { data, pending } =  useAsyncData( "main", () =>
+  const { data, pending } =  useAsyncData( "main-page", () =>
     FetchApi<HomeDataDto>("/Utilities/MainPageData")
   );
 </script>
