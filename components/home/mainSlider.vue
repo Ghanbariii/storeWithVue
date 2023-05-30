@@ -2,8 +2,10 @@
   <Carousel
     dir="rtl"
     v-model="currentSlide"
-    autoplay="2000"
+    wrapAround
+    autoplay= "2000"
     :itemsToShow="1"
+    pauseAutoplayOnHover
     v-if="isShow"
     class="main__slider"
     :navigation="{
@@ -36,6 +38,14 @@
           class="swiper-button-next"
           @click="currentSlide = -1"
         ></div>
+        <div class="slider__pagination">
+          <label
+                        :class="{ active: item == currentSlide + 1 }"
+                        v-for="item in slidesCount"
+                        :key="item"
+                        @click="currentSlide = item - 1"
+                      ></label>
+        </div>
       </div>
     </template>
   </Carousel>
@@ -43,7 +53,7 @@
 
 <script setup lang="ts">
 import { defineComponent } from "vue";
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Slide } from "vue3-carousel";
 
 import "vue3-carousel/dist/carousel.css";
 import { SliderDto } from "~~/models/home/homeDataDto";
@@ -58,7 +68,7 @@ onMounted(()=>{
   setTimeout(()=>{
     isShow.value=true;
   },100);
-})
+});
 </script>
 
 <style>
@@ -68,18 +78,18 @@ onMounted(()=>{
   }
 }
 
-.main__slider .carousel__item {
+.carousel__item {
   border-radius: 15px;
   width: 100%;
 }
 
-.main__slider .carousel__item img {
+.carousel__item img {
   height: 455px;
   border-radius: 15px;
   width: 100%;
 }
 
-.main__slider .carousel__slide {
+.carousel__slide {
   padding: 0;
   border-radius: 15px !important;
 }
@@ -91,8 +101,8 @@ onMounted(()=>{
   font-weight: bold !important;
 }
 
-.main__slider .swiper-button-prev,
-.main__slider .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   width: 55px !important;
   height: 55px !important;
   background: transparent !important;
@@ -118,7 +128,7 @@ onMounted(()=>{
   cursor: pointer;
 }
 
-.main__slider .swiper-pagination-bullet-active-main {
+.swiper-pagination-bullet-active-main {
   background: white !important;
 }
 </style>

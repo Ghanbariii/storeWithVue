@@ -1,3 +1,3 @@
 <template>
-    <img />
+    <img  width="100"/>
 </template>
