@@ -1,30 +1,23 @@
 <template>
   <div class="product-card">
     <div class="product-thumbnail">
-      <a href="#">
-        <img src="/images/products/01.jpg" alt="product title" />
-      </a>
+      <nuxt-link to="/">
+        <img :src="GetProductImage(product.imageName)" :alt="product.title" />
+    </nuxt-link>
     </div>
     <div class="product-card-body">
       <h2 class="product-title">
-        <a href="#"
-          >گوشی موبایل اپل مدل iPhone 13 A2634 دو سیم‌ کارت ظرفیت 128 گیگابایت و
-          رم 4 گیگابایت</a
+        <nuxt-link to="/"
+          >{{ product.title }}</nuxt-link
         >
       </h2>
-      <div class="product-variant">
-        <span class="color" style="background-color: #d4d4d4"></span>
-        <span class="color" style="background-color: #e86841"></span>
-        <span class="color" style="background-color: #b82c32"></span>
-        <span>+</span>
-      </div>
       <div class="product-price fa-num">
-        <div class="d-flex align-items-center">
-          <del class="price-old">26,900,000</del>
-          <span class="discount ms-2">%2</span>
+        <div class="d-flex align-items-center" v-if="product.discountPercentage>=1">
+          <del class="price-old"> {{ product.price }}</del>
+          <span class="discount ms-2"> %{{ product.discountPercentage }}</span>
         </div>
         <span class="price-now"
-          >26,249,000 <span class="currency">تومان</span></span
+          > {{ product.totalPrice }} <span class="currency">تومان</span></span
         >
       </div>
     </div>
@@ -72,19 +65,19 @@
         </div>
         <div class="product-rating fa-num">
           <i class="ri-star-fill star"></i>
-          <strong>۴.۴</strong>
-          <span>(۴۳۶)</span>
+          <strong> {{  product.rate }}</strong>
+          <span> {{ product.commentCount }}</span>
         </div>
       </div>
-      <div class="countdown-timer fa-num" data-countdown="2023/01/01"></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ProductCardDto } from '~/models/ProductCard';
+import { GetProductImage } from '~/utilities/imageUrls';
 
 defineProps<{
-    products: ProductCardDto;
+    product: ProductCardDto;
 }>();
 </script>
