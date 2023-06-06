@@ -17,7 +17,7 @@
   <div v-else-if="position == BannerPosition.سمت_چپ_اسلایدر" class="row">
     <div
       class="col-lg-12 col-6 mb-lg-3"
-      v-for="item in filteredBanners.slice(0, 2)"
+      v-for="(item,index) in filteredBanners.slice(0, 2)" :key="index"
     >
       <div class="banner-img banner-side-main-slider bg-position-right">
         <a :href="filteredBanners[0].link" style="height: 220px">
@@ -31,7 +31,7 @@
     </div>
   </div>
   <template v-else-if="position == BannerPosition.زیر_اسلایدر">
-    <div class="col-md-6 mb-lg-0 mb-3" v-for="item in filteredBanners.slice(0, 2)">
+    <div class="col-md-6 mb-lg-0 mb-3" v-for="(item,index) in filteredBanners.slice(0, 2)" :key="index">
       <!-- start of banner -->
       <div class="banner-img">
         <a :href="filteredBanners[0].link" style="height: 220px">
@@ -45,7 +45,7 @@
     </div>
   </template>
   <template v-if="position == BannerPosition.وسط_صفحه">
-    <div class="col-md-3 col-6 mb-lg-0 mb-3" v-for="item in filteredBanners.slice(0, 4)">
+    <div class="col-md-3 col-6 mb-lg-0 mb-3" v-for="(item,index) in filteredBanners.slice(0, 4)" :key="index">
       <a :href="filteredBanners[0].link" style="height: 220px">
           <img
             style="height: 100%"

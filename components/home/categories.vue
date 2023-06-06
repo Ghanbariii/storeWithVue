@@ -114,7 +114,7 @@ watch(currentSlide, (val) => {
     width: 100%;
 }
 .carousel__slide {
-    padding: 0;
+  padding: 0;
   padding-left: 10px;
 }
 .swiper-button-prev::after,

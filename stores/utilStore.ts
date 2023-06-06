@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { Ref } from "vue";
-import { categoryDto } from "../models/categories/categoriesDTo";
+import { categoryDto } from "~/models/categories/categoriesDto";
 import { GetAllCategory } from "~/services/category.service";
 
 export const useUtilStore = defineStore("util", () => {
@@ -12,5 +12,5 @@ export const useUtilStore = defineStore("util", () => {
       categories.value = res.data;
     }
   };
-  return { categories, setCategories };
+  return { categories , setCategories };
 });

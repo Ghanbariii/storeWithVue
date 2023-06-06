@@ -23,24 +23,6 @@
               </div>
             </div>
             <div class="col-lg-9">
-              <!-- <div class="swiper product-specials-swiper-slider mb-3 pb-5">
-                        <div class="swiper-wrapper">
-                          <div class="swiper-slide d-lg-none d-sm-block d-none">
-                            <div class="specials-container">
-                              <img
-                                src="/images/theme/specials.png"
-                                class="img-fluid mb-0"
-                                alt=""
-                              />
-                              <nuxt-link to="/" class="btn btn-sm btn-outline-light"
-                                >مشاهده همه <i class="ri-arrow-left-fill ms-2"></i
-                              ></nuxt-link>
-                            </div>
-                          </div>
-                          <div class="swiper-slide">
-                          </div>
-                        </div>
-                      </div> -->
               <Carousel
                 dir="rtl"
                 v-model="currentSlide"
