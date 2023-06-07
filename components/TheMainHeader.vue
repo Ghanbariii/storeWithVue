@@ -4,12 +4,8 @@
         <div class="alert banner-container alert-dismissible fade show" role="alert">
             <nuxt-link to="/" class="banner-placement rounded-0" style="background-image: url(/images/banner/017.jpg);
                 height: 60px;"></nuxt-link>
-            <nuxt-link to="/test2" class="banner-placement rounded-0" style="background-image: url(/images/banner/017.jpg);
-                height: 60px;"></nuxt-link>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <!-- end banner -->
-        <!-- start of page-header-top -->
         <div class="page-header--top">
             <div class="container">
                 <div class="d-flex align-items-center justify-content-between">

@@ -64,6 +64,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", onResize);
 });
+
 const nextSlide = () => {
   currentSlide.value += 2;
 };
